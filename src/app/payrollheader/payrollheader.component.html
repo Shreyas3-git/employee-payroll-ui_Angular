@@ -1,0 +1,55 @@
+
+<header class="header-content header">
+    <div class="logo-content">
+        <img src="../assets/images/logo.png" alt="Logo Image">
+        <div>
+            <span class="emp-text">EMPLOYEE</span><br/>
+            <span class="emp-text emp-payroll">PAYROLL</span>
+        </div>
+    </div>
+</header>
+<div class="main-content">
+    <div class="header-content">
+        <div class="emp-detail-text">
+            Employee Details <div class="emp-count">10</div>
+        </div>
+        <a href="add.html" class="add-button">
+            <img src="../assets/icons/add-24px.svg" alt="Add User Logo">Add
+            User
+        </a>
+    </div>
+</div>
+<table id="table-display" class="table">
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Department</th>
+        <th>Salary</th>
+        <th>Start Date</th>
+        <th>Actions</th>
+    </tr>
+    <tr>
+        <td>
+            <img class="profile" src="../assets/profile-images/Ellipse -2.png" alt="">
+        </td>
+        <td>Tom Cruise</td>
+        <td>Male</td>
+        <td>
+            <div class="dept-label">HR</div>
+            <div class="dept-label">Finance</div>
+        </td>
+        <td>3000000</td>
+        <td>1 Nov 2020</td>
+        <td>
+            <img id="1" onclick="remove(this)"
+                src="../assets/icons/delete-black-18dp.svg"
+                alt="delete">
+            <img id="1" onclick="update(this)"
+                src="../assets/icons/create-black-18dp.svg" alt="edit">
+        </td>
+    </tr>
+</table>
+
+
+<router-outlet></router-outlet>
