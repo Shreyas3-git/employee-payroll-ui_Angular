@@ -7,10 +7,12 @@ import { PayrollhomeComponent } from './payrollhome/payrollhome.component';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: 'details', pathMatch: 'full' },
   {path: 'addpayroll' , component: PayrollhomeComponent},
   {path: 'details' , component: PayrollheaderComponent},
   // {path: 'header' , component: HeaderComponent},
-  {path: '',   redirectTo:'details',  pathMatch:'full'}
+ // {path: '',   redirectTo:'details',  pathMatch:'full'}
+ 
 ];
 
 @NgModule({

@@ -33,9 +33,9 @@
             <td>{{employee.employeeSalary}}</td>
             <td>{{employee.employeeStartDate}}</td>
             <td>
-                <img id="1" onclick="remove(this)"
+                <img  
                     src="../assets/icons/delete-black-18dp.svg"
-                    alt="delete">
+                    alt="delete" (click)="remove(employee.id)" id={{employee.id}}>
                 <img id="1" onclick="update(this)"
                     src="../assets/icons/create-black-18dp.svg" alt="edit">
             </td>

@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { EmployeeService } from './services/employee.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { PayrollheaderComponent } from './payrollheader/payrollheader.component';
 import { PayrollhomeComponent } from './payrollhome/payrollhome.component';
 import { HeaderComponent } from './header/header.component';
@@ -112,7 +112,8 @@ import {OverlayModule} from '@angular/cdk/overlay';
     PortalModule,
     ScrollingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [EmployeeService],

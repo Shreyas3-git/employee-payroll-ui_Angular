@@ -25,8 +25,14 @@ export class EmployeeService
          return this.http.get<IEmployee[]>(this._url);
     }
 
-    addEmployeeData(user : IEmployee) : Observable<IEmployee[]>
+    addEmployeeData(user : IEmployee) : Observable<any>
     {
-        return this.http.post<IEmployee[]>(this._url,user);
+        return this.http.post(this._url,user);
+    }
+
+    deleteEmployeeData(id : number) : Observable<any>
+    {
+        let removeUrl : string = 'http://localhost:8088/delete/';
+        return this.http.delete(removeUrl + id);
     }
 }

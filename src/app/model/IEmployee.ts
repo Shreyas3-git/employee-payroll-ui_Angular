@@ -7,6 +7,6 @@ export interface IEmployee
     employeeSalary : number;
     employeeStartDate : Date;
     employeeNotes : string;
-    profilePi : string;
+    profilePic : string;
 
 }
