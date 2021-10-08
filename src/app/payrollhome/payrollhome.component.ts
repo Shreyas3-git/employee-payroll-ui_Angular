@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { PayrollheaderComponent } from '../payrollheader/payrollheader.component';
 @Component({
   selector: 'app-payrollhome',
   templateUrl: './payrollhome.component.html',
@@ -7,13 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PayrollhomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private user : PayrollheaderComponent) { }
+  
   isCheck : boolean = false;
-  ngOnInit(): void {
+  
+  ngOnInit(): void 
+  {
+     console.log( this.user.employees.values.name);
   }
 
-
-  payrollHeader() : void {
+  payrollHeader() : void 
+  {
     this.isCheck = true;
   }
+
 }

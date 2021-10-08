@@ -166,6 +166,8 @@ error-output {
     margin-left: 10px;
 }
 
+
+
 @media only screen and (max-width: 960px) {
     .cancelButton {
         margin-left: 0px;
@@ -175,6 +177,7 @@ error-output {
         padding: 44px 20px;
     }
 }
+
 
 @media only screen and (max-width: 600px) {
     .form {
@@ -204,4 +207,5 @@ error-output {
         flex-direction: column-reverse;
         align-items: flex-start;
     }
+
 }

@@ -1,0 +1,34 @@
+{   
+    "employees": [
+        {
+            "id": 1,
+            "employeeName": "Ramesh",
+            "employeeGender": "Male",
+            "employeeDepartment": "Engineer",
+            "employeeSalary": 45000.0,
+            "employeeStartDate": "2021-07-11",
+            "employeeNotes": "Hi...",
+            "profilePic": "not set"
+        },
+        {
+            "id": 2,
+            "employeeName": "Suresh",
+            "employeeGender": "Male",
+            "employeeDepartment": "Sales",
+            "employeeSalary": 55000.0,
+            "employeeStartDate": "2020-07-10",
+            "employeeNotes": "Hello...",
+            "profilePic": "not set"
+        },
+        {
+            "id": 3,
+            "employeeName": "Mahesh",
+            "employeeGender": "Male",
+            "employeeDepartment": "HR",
+            "employeeSalary": 65000.0,
+            "employeeStartDate": "2021-06-10",
+            "employeeNotes": "Welcome...",
+            "profilePic": "not set"
+        }
+    ]
+}

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddemployeeComponent } from './addemployee/addemployee.component';
 import { PayrollheaderComponent } from './payrollheader/payrollheader.component';
 import { PayrollhomeComponent } from './payrollhome/payrollhome.component';
 
@@ -14,6 +15,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-  
- }
+export class AppRoutingModule {}
+export const rountingComponent = [PayrollheaderComponent,PayrollhomeComponent,AddemployeeComponent];
