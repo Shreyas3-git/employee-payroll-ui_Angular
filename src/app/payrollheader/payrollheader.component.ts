@@ -8,13 +8,15 @@ import { IEmployee } from '../model/IEmployee';
 })
 export class PayrollheaderComponent implements OnInit {
 
-  employees : IEmployee[] = [] ;
+  employees : any = [] ;
   constructor(private employeeService : EmployeeService) { }  
   
   ngOnInit(): void 
   {
-      this.employeeService.getEmployeeData().subscribe(data => {
-        this.employees = data;
+      this.employeeService.getEmployeeData().subscribe(employees => {
+        console.log(employees);
+        this.employees = employees.data;
+
       });
   }
 
@@ -22,7 +24,7 @@ export class PayrollheaderComponent implements OnInit {
   {
       this.employeeService.addEmployeeData(user).subscribe( data => {
           console.log('Data added successfully:');
-          return this.employees.push(user);
+          // this.employees.push(user);
       });
   }
 }

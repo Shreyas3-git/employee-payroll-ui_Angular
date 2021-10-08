@@ -7,13 +7,13 @@ import { PayrollheaderComponent } from '../payrollheader/payrollheader.component
 })
 export class PayrollhomeComponent implements OnInit {
 
-  constructor(private user : PayrollheaderComponent) { }
+  constructor() { }
   
   isCheck : boolean = false;
   
   ngOnInit(): void 
   {
-     console.log( this.user.employees.values.name);
+  //   console.log( this.user.employees.values.name);
   }
 
   payrollHeader() : void 

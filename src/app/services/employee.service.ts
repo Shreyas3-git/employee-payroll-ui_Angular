@@ -9,9 +9,9 @@ import {IEmployee} from '../model/IEmployee';
   
 export class EmployeeService 
 {
-    _url : string = "../jsonData/payrollemployees.json";
+    _url : string = "http://localhost:8088/retrive";
     //data : Observable<any> ;
-  static employeeDetails: any;
+   employeeDetails: any;
     constructor(private http: HttpClient) { }
 
     ngOnInit() 
@@ -21,6 +21,7 @@ export class EmployeeService
 
     getEmployeeData() : Observable<IEmployee[]>
     {
+    //     this._url= this._url + '/retrive';
          return this.http.get<IEmployee[]>(this._url);
     }
 

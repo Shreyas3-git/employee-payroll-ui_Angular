@@ -1,5 +1,4 @@
-{   
-    "employees": [
+     [
         {
             "id": 1,
             "employeeName": "Ramesh",
@@ -31,4 +30,3 @@
             "profilePic": "not set"
         }
     ]
-}

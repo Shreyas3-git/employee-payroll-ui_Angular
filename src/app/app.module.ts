@@ -1,13 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule, rountingComponent } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { EmployeeService } from './services/employee.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { PayrollheaderComponent } from './payrollheader/payrollheader.component';
+import { PayrollhomeComponent } from './payrollhome/payrollhome.component';
+import { HeaderComponent } from './header/header.component';
 
 import {A11yModule} from '@angular/cdk/a11y';
 import {ClipboardModule} from '@angular/cdk/clipboard';
@@ -56,7 +59,9 @@ import {OverlayModule} from '@angular/cdk/overlay';
 @NgModule({
   declarations: [
     AppComponent,
-    rountingComponent
+    PayrollheaderComponent,
+    PayrollhomeComponent ,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -110,7 +115,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
     FormsModule
 
   ],
-  providers: [EmployeeService,],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
