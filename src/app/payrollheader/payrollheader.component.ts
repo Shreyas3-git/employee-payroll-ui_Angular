@@ -8,14 +8,14 @@ import { IEmployee } from '../model/IEmployee';
 })
 export class PayrollheaderComponent implements OnInit {
 
-  employees : any = [] ;
+  employees : IEmployee[] = [] ;
   constructor(private employeeService : EmployeeService) { }  
   
   ngOnInit(): void 
   {
       this.employeeService.getEmployeeData().subscribe(employees => {
         console.log(employees);
-        this.employees = employees.data;
+        this.employees = employees['data'];
 
       });
   }
