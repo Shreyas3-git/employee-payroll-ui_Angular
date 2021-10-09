@@ -12,10 +12,8 @@ import { EmployeeService } from '../services/employee.service';
 export class PayrollhomeComponent implements OnInit {
   
   isCheck : boolean = false;
-    
+  //FormDetails : any;
   constructor(private fb : FormBuilder,private service : EmployeeService,public dialog : MatDialog) { }
-  
-  
 
   
   ngOnInit(): void 
@@ -28,8 +26,23 @@ export class PayrollhomeComponent implements OnInit {
     this.isCheck = true;
   }
 
-  onSubmit()
+  onSubmit(value)
   {
+    
+      let userObject =  {
+        "id": 1,
+        "employeeName": value.name,
+        "employeeGender": value.gender,
+        "employeeDepartment": value.department,
+        "employeeSalary": value.salary,
+        "employeeStartDate": new Date(value.Year + '-' +value.Day + '-' + value.Month),
+        "employeeNotes": value.Notes,
+        "profilePic": value.profile
+    }    
+    console.log(value,userObject);
+    this.service.addEmployeeData(userObject).subscribe( data => {
+      console.log(data);
+ });
 
   }
 }

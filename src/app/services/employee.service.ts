@@ -27,7 +27,8 @@ export class EmployeeService
 
     addEmployeeData(user : IEmployee) : Observable<any>
     {
-        return this.http.post(this._url,user);
+        let addUrl = 'http://localhost:8088/insert'
+        return this.http.post(addUrl,user);
     }
 
     deleteEmployeeData(id : number) : Observable<any>

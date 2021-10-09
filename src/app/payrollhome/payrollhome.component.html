@@ -1,11 +1,12 @@
     <!-- UC2 -->
     <div class="form-content" >
-        <form class="form" action="#" onreset="resetForm()"
-            onsubmit="save()">
+        {{formDetails.value | json}}
+        
+        <form class="form"  (ngSubmit)="onSubmit(formDetails.value)" #formDetails='ngForm'>
             <div class="row-content">
                 <label for="name" class="label text">Name</label>
                 <input type="text" class="input" id="name" name="name"
-                    placeholder="Your name.." required >
+                    placeholder="Your name.." required ngModel>
                 <!-- <error-output class="text-error" for="name"></error-output> -->
             </div>
             <div class="row-content">
@@ -14,28 +15,28 @@
                     <label>
                         <input type="radio" id="profile1"
                             value="../assets/profile-images/Ellipse -3.png"
-                            name="profile">
+                            name="profile" ngModel>
                         <img class="profile" id="image1"
                             src="../assets/profile-images/Ellipse -3.png">
                     </label>
                     <label>
                         <input type="radio" id="profile2"
                             value="../assets/profile-images/Ellipse -1.png"
-                            name="profile">
+                            name="profile" ngModel>
                         <img class="profile" id="image2"
                             src="../assets/profile-images/Ellipse -1.png">
                     </label>
                     <label>
                         <input type="radio" id="profil3"
                             value="../assets/profile-images/Ellipse -8.png"
-                            name="profile">
+                            name="profile" ngModel>
                         <img class="profile" id="image3"
                             src="../assets/profile-images/Ellipse -8.png">
                     </label>
                     <label>
                         <input type="radio" id="profile4"
                             value="../assets/profile-images/Ellipse -7.png"
-                            name="profile">
+                            name="profile" ngModel>
                         <img class="profile" id="image4"
                             src="../assets/profile-images/Ellipse -7.png">
                     </label>
@@ -45,10 +46,10 @@
                 <label for="gender" class="label text">Gender</label>
                 <div>
                     <input type="radio" id="male" name="gender"
-                        value="male">
+                        value="male" ngModel>
                     <label for="male" class="text">Male</label>
                     <input type="radio" id="female" name="gender"
-                        value="female">
+                        value="female" ngModel>
                     <label for="female" class="name">Female</label>
                 </div>
             </div>
@@ -56,19 +57,19 @@
                 <label for="department" class="label text">Department</label>
                 <div>
                     <input type="checkbox" class="checkbox" id="hr"
-                        name="department" value="HR">
+                        name="department" value="HR" ngModel>
                     <label for="hr" class="text">HR</label>
                     <input type="checkbox" class="checkbox" id="sales"
-                        name="department" value="Sales">
+                        name="department" value="Sales" ngModel>
                     <label for="sales" class="text">Sales</label>
                     <input type="checkbox" class="checkbox" id="finance"
-                        name="department" value="Finance">
+                        name="department" value="Finance" ngModel>
                     <label for="finance" class="text">Finance</label>
                     <input type="checkbox" class="checkbox" id="engineer"
-                        name="department" value="Engineer">
+                        name="department" value="Engineer" ngModel>
                     <label for="engineer" class="text">Engineer</label>
                     <input type="checkbox" class="checkbox" id="others"
-                        name="department" value="Others">
+                        name="department" value="Others" ngModel>
                     <label for="others" class="text">Others</label>
                 </div>
             </div>
@@ -76,13 +77,13 @@
                 <label for="salary" class="label text">Choose your salary:
                 </label>
                 <input type="range" class="input" name="salary" id="salary"
-                    min="300000" max="500000" step="100" value="400000">
+                    min="300000" max="500000" step="100" value="400000" ngModel>
                 <output class="salary-output text" for="salary">400000</output>
             </div>
             <div class="row-content">
                 <label class="label text" for="startDate">Start Date</label>
                 <div>
-                    <select id="day" name="Day">
+                    <select id="day" name="Day" ngModel>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -115,7 +116,7 @@
                         <option value="30">30</option>
                         <option value="31">31</option>
                     </select>
-                    <select name="Month" id="month">
+                    <select name="Month" id="month" ngModel>
                         <option value="Jan">January</option>
                         <option value="Feb">Febuary</option>
                         <option value="Mar">March</option>
@@ -129,7 +130,7 @@
                         <option value="Nov">November</option>
                         <option value="Dec">December</option>
                     </select>
-                    <select name="Year" id="year">
+                    <select name="Year" id="year" ngModel>
                         <option value="2020">2020</option>
                         <option value="2019">2019</option>
                         <option value="2018">2018</option>
@@ -141,16 +142,15 @@
             <div class="row-content">
                 <label for="notes" class="label text">Notes</label>
                 <textarea id="notes" class="input" name="Notes"
-                    placeholder="" style="height:100px"></textarea>
+                    placeholder="" style="height:100px" ngModel></textarea>
             </div>
             <div class="buttonParent">
-                <a href="home.html" class="resetButton
+                <a class="resetButton
                     button cancelButton">Cancel</a>
                 <div class="submit-reset">
                     <button class="button submitButton" id="submitButton"
-                             routerLink='/details'>Submit</button>
-                    <!-- <a  class="button submitButton" id="submitButton"
-                            routerLink="/details" type="submit">Submit</a>     -->
+                              type="submit" >Submit</button>
+                    
                     <button type="reset" class="resetButton button">Reset</button>
                 </div>
             </div>

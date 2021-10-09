@@ -11,6 +11,7 @@ export class PayrollheaderComponent implements OnInit {
 
   employees : IEmployee[] = [] ;
   constructor(private employeeService : EmployeeService,private router : Router) { }  
+  employeepost : IEmployee;
   //this.employess
   ngOnInit(): void 
   {
@@ -21,13 +22,13 @@ export class PayrollheaderComponent implements OnInit {
       });
   }
 
-  addEmployeeDetails(user : IEmployee)
+  addEmployeeDetails(user : any)
   {
       this.employeeService.addEmployeeData(user).subscribe( data => {
           console.log(data);
+     });
 
-          // this.employees.push(user);
-      });
+
   }
 
   remove(employeeid : number)
@@ -35,7 +36,7 @@ export class PayrollheaderComponent implements OnInit {
     console.log(employeeid);
     this.router.navigateByUrl('details');
     this.employeeService.deleteEmployeeData(employeeid).subscribe(employees => {
-      
+      console.log(employees);
     });      
 
   }
