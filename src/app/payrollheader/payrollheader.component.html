@@ -2,7 +2,7 @@
     <div class="main-content">
         <div class="header-content">
             <div class="emp-detail-text">
-                Employee Details <div class="emp-count">10</div>
+                Employee Details <div class="emp-count">{{this.employees.length}}</div>
             </div>
             <a href="payrollhome.component.html" class="add-button" routerLink='/addpayroll'>
                 <img src="../assets/icons/add-24px.svg" alt="Add User Logo">Add
@@ -21,8 +21,8 @@
             <th>Actions</th>
         </tr>
         <tr *ngFor='let employee of employees'>
-            <td>
-                <img class="profile" src="../assets/profile-images/Ellipse -2.png" alt="">
+            <td>    
+                <img class="profile" [src]= "employee.profilePic" alt="">
             </td>
             <td>{{employee.employeeName}}</td>
             <td>{{employee.employeeGender}}</td>
@@ -36,7 +36,7 @@
                 <img  
                     src="../assets/icons/delete-black-18dp.svg"
                     alt="delete" (click)="remove(employee.id)" id={{employee.id}}>
-                <img id="1" onclick="update(this)"
+                <img id="1" (click)="updateEmployee(employee.id,employee)" id="{{employee.id}}"
                     src="../assets/icons/create-black-18dp.svg" alt="edit">
             </td>
         </tr>

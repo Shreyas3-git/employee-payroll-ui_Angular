@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../services/employee.service';
 import { IEmployee } from '../model/IEmployee';
 import { Router } from '@angular/router';
+import { userEntity } from '../model/user-model';
+
 @Component({
   selector: 'app-payrollheader',
   templateUrl: './payrollheader.component.html',
@@ -10,8 +12,10 @@ import { Router } from '@angular/router';
 export class PayrollheaderComponent implements OnInit {
 
   employees : IEmployee[] = [] ;
+  userModel : userEntity;
+
   constructor(private employeeService : EmployeeService,private router : Router) { }  
-  employeepost : IEmployee;
+   employeepost : IEmployee;
   //this.employess
   ngOnInit(): void 
   {
@@ -28,7 +32,6 @@ export class PayrollheaderComponent implements OnInit {
           console.log(data);
      });
 
-
   }
 
   remove(employeeid : number)
@@ -39,6 +42,12 @@ export class PayrollheaderComponent implements OnInit {
       console.log(employees);
     });      
 
+  }
+
+  updateEmployee(id : number , user : userEntity)
+  {
+      this.router.navigate(['update',id]);
+     
   }
 }
 

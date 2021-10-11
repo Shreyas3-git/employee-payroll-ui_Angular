@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {IEmployee} from '../model/IEmployee';
+import { userEntity } from "../model/user-model";
 
 @Injectable({
     providedIn: 'root'
@@ -36,4 +37,11 @@ export class EmployeeService
         let removeUrl : string = 'http://localhost:8088/delete/';
         return this.http.delete(removeUrl + id);
     }
+
+   updateEmployee(id : number,user : userEntity) : Observable<any>
+   {
+       let updateUrl : string = 'http://localhost:8088/update/';
+       return this.http.put(updateUrl + id,user);
+   } 
+    
 }

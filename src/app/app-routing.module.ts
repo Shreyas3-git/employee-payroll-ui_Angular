@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'details', pathMatch: 'full' },
   {path: 'addpayroll' , component: PayrollhomeComponent},
   {path: 'details' , component: PayrollheaderComponent},
+  {path: 'update/:id' , component: PayrollhomeComponent},
   // {path: 'header' , component: HeaderComponent},
  // {path: '',   redirectTo:'details',  pathMatch:'full'}
  
