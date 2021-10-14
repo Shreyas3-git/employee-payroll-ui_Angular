@@ -7,10 +7,11 @@ import { PayrollhomeComponent } from './payrollhome/payrollhome.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'details', pathMatch: 'full' },
+ 
   {path: 'addpayroll' , component: PayrollhomeComponent},
   {path: 'details' , component: PayrollheaderComponent},
   {path: 'update/:id' , component: PayrollhomeComponent},
+  { path: '', redirectTo: 'details', pathMatch: 'full' }
   // {path: 'header' , component: HeaderComponent},
  // {path: '',   redirectTo:'details',  pathMatch:'full'}
  

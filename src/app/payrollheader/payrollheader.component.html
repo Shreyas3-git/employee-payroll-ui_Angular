@@ -5,8 +5,7 @@
                 Employee Details <div class="emp-count">{{this.employees.length}}</div>
             </div>
             <a href="payrollhome.component.html" class="add-button" routerLink='/addpayroll'>
-                <img src="../assets/icons/add-24px.svg" alt="Add User Logo">Add
-                User
+                <img src="../assets/icons/add-24px.svg" alt="Add User Logo">Add User
             </a>
         </div>
     </div> 
@@ -34,10 +33,10 @@
             <td>{{employee.employeeStartDate}}</td>
             <td>
                 <img  
-                    src="../assets/icons/delete-black-18dp.svg"
+                    src="../assets/icons/delete-black-18dp.svg" routerLink="details"
                     alt="delete" (click)="remove(employee.id)" id={{employee.id}}>
                 <img id="1" (click)="updateEmployee(employee.id,employee)" id="{{employee.id}}"
-                    src="../assets/icons/create-black-18dp.svg" alt="edit">
+                    routerLink="details" src="../assets/icons/create-black-18dp.svg" alt="edit">
             </td>
         </tr>
     </table>

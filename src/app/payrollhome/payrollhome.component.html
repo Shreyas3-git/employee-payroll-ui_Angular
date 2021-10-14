@@ -1,14 +1,20 @@
     <!-- UC2 -->
     <div class="form-content" >
         <!-- {{formDetails.value | json}} -->
-        
+    <!-- <-------Use Name ------>     
         <form class="form"   #formDetails='ngForm'>
             <div class="row-content">
                 <label for="name" class="label text">Name</label>
-                <input type="text" class="input" id="name" name="name"
-                    placeholder="Your name.." required [(ngModel)]="userModel.name">
-                <!-- <error-output class="text-error" for="name"></error-output> -->
+                <input type="text" class="input" id="name" name="fname"
+                required minlength="3" #fname="ngModel" placeholder="Your name.."  [(ngModel)]="userModel.name" [ngModelOptions]="{standalone: true}"/>
+                <label class="fname"*ngIf="!fname?.valid && (fname?.dirty || fname?.touched)">
+                    Invalid Name
+                </label>
+                  
             </div>
+
+            <!-- <-------Profile pic ------>     
+
             <div class="row-content">
                 <label class="label text" for="profile">Profile image</label>
                 <div class="profile-radio-content">
@@ -42,6 +48,8 @@
                     </label>
                 </div>
             </div>
+                <!-- <-------Gender ------>     
+
             <div class="row-content">
                 <label for="gender" class="label text">Gender</label>
                 <div>
@@ -53,11 +61,14 @@
                     <label for="female" class="name">Female</label>
                 </div>
             </div>
+
+            <!-- <-------Departments ------>     
+
             <div class="row-content">
                 <label for="department" class="label text">Department</label>
                 <div>
                     <input type="checkbox" class="checkbox" id="hr"
-                        name="department" value="HR" [(ngModel)]="userModel.department">
+                        name="department" value="HR" [(ngModel)]="userModel.department" >
                     <label for="hr" class="text">HR</label>
                     <input type="checkbox" class="checkbox" id="sales"
                         name="department" value="Sales" [(ngModel)]="userModel.department">
@@ -73,13 +84,16 @@
                     <label for="others" class="text">Others</label>
                 </div>
             </div>
+            <!--------- Salary ---------->
             <div class="row-content">
                 <label for="salary" class="label text">Choose your salary:
                 </label>
                 <input type="range" class="input" name="salary" id="salary"
                     min="300000" max="500000" step="100" value="400000" [(ngModel)]="userModel.salary">
-                <output class="salary-output text" for="salary">400000</output>
+                <output class="salary-output text" for="salary">{{userModel.salary}}</output>
             </div>
+
+            <!--------- StateDate ---------->
             <div class="row-content">
                 <label class="label text" for="startDate">Start Date</label>
                 <div>
@@ -139,20 +153,25 @@
                     </select>
                 </div>
             </div>
+            <!----------- Notes ------------>
             <div class="row-content">
                 <label for="notes" class="label text">Notes</label>
                 <textarea id="notes" class="input" name="Notes"
                     placeholder="" style="height:100px" [(ngModel)]="userModel.Notes"></textarea>
             </div>
             <div class="buttonParent">
+                <!---- Cencel Button ----->
                 <a class="resetButton
                     button cancelButton">Cancel</a>
                 <div class="submit-reset">
-                    <button  class="button" (click)="onUpdate()">Update</button>
+                <!------- Update Button -------->
+                    <button  class="button" (click)="onUpdate(userModel)">Update</button>
+                 
+                <!------- Submit Button --------->
                     <button class="button submitButton" id="submitButton"
-                              type="submit" (click)="onSubmit(userModel)">Submit
+                              type="submit" (click)="onSubmit(userModel)" routerLink="details">Submit
                             </button>
-                    
+                <!-- ------Reset Button ---------->
                     <button type="reset" class="resetButton button">Reset</button>
                 </div>
             </div>

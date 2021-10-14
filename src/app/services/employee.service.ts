@@ -10,7 +10,7 @@ import { userEntity } from "../model/user-model";
   
 export class EmployeeService 
 {
-    _url : string = "http://localhost:8088/retrive";
+   
     //data : Observable<any> ;
    employeeDetails: any;
     constructor(private http: HttpClient) { }
@@ -22,8 +22,8 @@ export class EmployeeService
 
     getEmployeeData() : Observable<IEmployee[]>
     {
-    //     this._url= this._url + '/retrive';
-         return this.http.get<IEmployee[]>(this._url);
+       let _url  = "http://localhost:8088/retrive";
+         return this.http.get<IEmployee[]>(_url);
     }
 
     addEmployeeData(user : IEmployee) : Observable<any>
@@ -38,10 +38,14 @@ export class EmployeeService
         return this.http.delete(removeUrl + id);
     }
 
-   updateEmployee(id : number,user : userEntity) : Observable<any>
+   updateEmployee(id : number,user : IEmployee) : Observable<any>
    {
+       console.log('service method:');
+       console.log(id,user);
+
        let updateUrl : string = 'http://localhost:8088/update/';
        return this.http.put(updateUrl + id,user);
+        // return null;
    } 
     
 }

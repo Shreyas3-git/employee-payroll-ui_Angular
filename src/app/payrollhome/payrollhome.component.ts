@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { userEntity } from '../model/user-model';
+import {userEntity} from '../model/user-model';
 import { EmployeeService } from '../services/employee.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { PayrollheaderComponent } from '../payrollheader/payrollheader.component';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 @Component({
   selector: 'app-payrollhome',
   templateUrl: './payrollhome.component.html',
@@ -11,6 +13,9 @@ import { Router } from '@angular/router';
 export class PayrollhomeComponent implements OnInit {
   
   isCheck : boolean = false;
+  checkBox : boolean = false;
+  checkedName : string = '';
+
   userModel = new userEntity({
         
     "id": 11,
@@ -56,7 +61,7 @@ export class PayrollhomeComponent implements OnInit {
   {
     
       let userObject =  {
-        id: 1,
+        id: parseInt(this.id),
         "employeeName": value.name,
         "employeeGender": value.gender,
         "employeeDepartment": value.department,
@@ -69,18 +74,37 @@ export class PayrollhomeComponent implements OnInit {
 
     console.log(value,userObject);
     this.service.addEmployeeData(userObject).subscribe( data => {
+      this.userModel  = data;
       console.log(data);
-      this.router.navigate(['details']);
+      this.router.navigateByUrl('details');
  });
 
   }
 
-  onUpdate()
+  onUpdate(value)
   {
-      this.service.updateEmployee(parseInt(this.id),this.userModel).subscribe(data => {
-        console.log(data);
-      }
+    let userObject =  {
+      id: parseInt(this.id),
+      "employeeName": value.name,
+      "employeeGender": value.gender,
+      "employeeDepartment": value.department,
+      "employeeSalary": value.salary,
+      "employeeStartDate": new Date(value.Year + '-' +value.Day + '-' + value.Month),
+      "employeeNotes": value.Notes,
+      "profilePic": value.profile
+  }    
 
-      )
+    console.log('welcome');
+    console.log(''+value.id);
+     
+    this.service.updateEmployee(value.id,userObject).subscribe(data => {
+
+    });
+  }
+
+  checkboxOnChange(value)
+  {
+      this.checkedName = value.target.department;
+      this.checkBox = true;      
   }
 }

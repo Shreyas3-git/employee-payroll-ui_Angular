@@ -30,6 +30,8 @@ export class PayrollheaderComponent implements OnInit {
   {
       this.employeeService.addEmployeeData(user).subscribe( data => {
           console.log(data);
+        this.employees = data;
+
      });
 
   }
@@ -37,17 +39,19 @@ export class PayrollheaderComponent implements OnInit {
   remove(employeeid : number)
   {
     console.log(employeeid);
-    this.router.navigateByUrl('details');
     this.employeeService.deleteEmployeeData(employeeid).subscribe(employees => {
       console.log(employees);
     });      
+//    this.router.navigateByUrl('details');
 
   }
 
-  updateEmployee(id : number , user : userEntity)
+  updateEmployee(id : number , user : any)
   {
       this.router.navigate(['update',id]);
-     
+      this.employeeService.updateEmployee(id,user).subscribe(data => {
+        //  this.employees = data;
+      });      
   }
 }
 
